@@ -1,0 +1,2 @@
+# HNU_DoctoralThesis_Latex
+湖南大学研究生毕业论文Latex模版
