@@ -1,0 +1,69 @@
+\chapter{论文模板简单使用说明}
+\section{Latex使用}
+该模板已经在mac的texifier，overleaf，vscode上验证使用，请用XeLaTex进行编译。
+
+\section{参考文献}
+
+在Doctoral-thesis.tex修改参考文献链接：\lstinline!\bibliography{MyLibrary.bib}!。
+
+目前可以使用的引用命令有\lstinline!\cite{}!、\lstinline!\citep{}!、\lstinline!\citet{}!和\lstinline!\citen{}!
+
+效果如下：
+
+引用 ResNet~\cite{2020_aradi_Survey}提出了ResNet网络结构\citep{2020_aradi_Survey}（上述第一个效果和第二个效果相同）。
+
+以人名为主语：\citet{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}针对队列稳定性提出了观测性方法。或者\citet{2021_chen_Graph}对与图做了个总结。
+
+参考文献的引用图标不上标：\citen{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}这样。
+
+\section{图表}
+插入图的常用命令有：
+\begin{lstlisting}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=.7\textwidth, page=1]{figures/dc.pdf}
+  \caption{决策控制框架}
+  \label{fig:dc-1}
+\end{figure}
+\end{lstlisting}
+
+引用的使用可以直接使用\lstinline!\figref{fig:dc-1}!
+
+三线表的命令：
+\begin{lstlisting}
+\begin{table}[htb]
+  \centering
+  \caption{训练超参数}
+  \label{tab:sarl-4}
+  \begin{tabular}{ccc}
+	\toprule
+	物理意义 & 英文/符号 & 数值 \\ 
+	\midrule
+	 隐含层数 & Hidden layer number & $\rm 2$ \\
+	\bottomrule
+  \end{tabular}
+\end{table}
+\end{lstlisting}
+
+引用格式为\lstinline!\tabref{tab:sarl-4}!
+
+\section{定理类环境}
+该模板定义了定理，引理，评注等，具体有：
+\begin{lstlisting}
+\newcommand\hnu@assertionname{断言}
+\newcommand\hnu@axiomname{公理}
+\newcommand\hnu@corollaryname{推论}
+\newcommand\hnu@definitionname{定义}
+\newcommand\hnu@propertyname{性质}
+\newcommand\hnu@examplename{例}
+\newcommand\hnu@lemmaname{引理}
+\newcommand\hnu@proofname{证明}
+\newcommand\hnu@propositionname{命题}
+\newcommand\hnu@remarkname{评注}
+\newcommand\hnu@theoremname{定理}
+\newcommand\hnu@assumptionname{假设}
+\end{lstlisting}
+
+\section{公式引用}
+引用格式为\lstinline!\eqref{}!
+

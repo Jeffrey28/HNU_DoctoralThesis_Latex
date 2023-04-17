@@ -1,0 +1,97 @@
+%!TEX encoding = UTF-8 Unicode
+%!TEX program = xelatex
+
+\documentclass[doctor]{hnuthesis}
+\usepackage{subfigure}
+\usepackage{amsmath, unicode-math}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}%
+
+%\newCJKfontfamily{\simsun}[AutoFakeBold = {3.17}]{SimSun} %%中文加粗
+
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{makecell}
+
+\usepackage{tikz}
+\usepackage{etoolbox}
+\newcommand{\circled}[2][]{\tikz[baseline=(char.base)]
+    {\node[shape = circle, draw, inner sep = 1pt]
+    (char) {\phantom{\ifblank{#1}{#2}{#1}}};%
+    \node at (char.center) {\makebox[0pt][c]{#2}};}}
+\robustify{\circled} 
+
+\usepackage{listings}
+
+%\usepackage{setspace}
+%\linespread{1.5}
+
+
+
+% 学校代码
+\hnucode{10532}
+% 学校名称
+\hnuname{湖南大学}
+\enhnuname{Hunan University}
+% 中图分类号
+\clc{TP391}         
+% 密级       
+\secrettext{普通}                  
+
+% 标题 
+\title{智能交通系统的决策控制方法研究}
+\entitle{Research on decision control methods for intelligent transportation systems}
+% 作者
+\author{XXXXXX}
+\enauthor{XXXXXX}
+% 学号
+\authorid{***********}      
+% 学院
+\college{机械与运载工程学院}
+% 专业
+\major{机械工程} 
+\enmajor{Mechanical Engineering}
+%学士学位获得学校，年份
+\enbachelor{B.E.~(****** University)2016}
+\enmaster{M.S.~(****** University)2020}
+\endoctor{Doctor of Philosophy}
+% 研究方向
+\workon{智能网联汽车}
+% 导师
+\supervisor{***\ 教授}
+\ensupervisor{Professor XXX}
+% 论文提交、答辩日期
+\submitdate{二〇二x年x月xx日}
+\defensedate{二〇二X年x月xx日}
+\endate{June, 2022}
+% 答辩委员会主席
+\chair{待定}
+
+\usepackage[export]{adjustbox} 
+\begin{document}
+% 封面、原创性声明
+\maketitle
+
+% 摘要
+\input{chapters/abstract}
+% 目录
+\tableofcontents
+% 插图附表索引
+\listoffigures
+\listoftables
+
+% 正文章节
+\mainmatter
+\input{chapters/ch1}
+\input{chapters/example}
+\input{chapters/summary}
+\bibliography{MyLibrary.bib}
+
+\appendix
+\input{chapters/publications}
+\input{chapters/projects}
+
+\backmatter
+\input{chapters/acknowledgements}
+
+\end{document}
