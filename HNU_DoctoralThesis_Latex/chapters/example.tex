@@ -67,3 +67,51 @@
 \section{公式引用}
 引用格式为\lstinline!\eqref{}!
 
+\begin{figure}
+    \centering
+    \includegraphics{HNU_DoctoralThesis_Latex/figures/hnu-logo.png}
+    \caption{Caption}
+    \label{fig:1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics{HNU_DoctoralThesis_Latex/figures/hnu-logo.png}
+    \caption{Caption}
+    \label{fig:1}
+\end{figure}
+
+\begin{algorithm} [htb]                                            
+	\caption{FCFS算法}
+  	\label{algo:revi-1}  
+  	\SetKwInOut{KwIn}{初始化}
+    \SetKwInOut{KwOut}{输出}
+	\KwIn{交叉路口信息，即网格占用点}
+	得到交叉路口车辆进入序列 \\
+	\For{\rm $1 < j < N$}{
+		\For{\rm $k<j$}{
+			识别车辆$j$与$k$之间的公共占用点$c_{j,k}\in \{1,2,\dots,Q_j\}$ \\
+			获得车辆$k$的进入时间$t_k^{\rm in}$ \\
+			$t_{j, k}^{\rm in}=t_k^Q+\frac{S}{V_{\text {int}}}+\delta$ \quad $\rhd$ 假设$Q$是占用点
+			}
+		$t_j^{\mathrm{in}}=\max \left\{t_{j, 1}^{\mathrm{in}}, t_{j, 2}^{\mathrm{in}}, \ldots, t_{j, k}^{\mathrm{in}}\right\}$ \quad $\rhd$ 获得最保守的进入时间 \\
+		随后更新并存储$t_j^{\mathrm{in}}, t_j^1, t_j^2, \ldots t_j^{Q_j}, t_j^{\text {out }}$。
+		}
+\end{algorithm}
+
+
+\begin{table}[htb]
+  \small
+  \centering
+  \caption{单车强化学习MDP设置}
+  \label{tab:revi-1}
+  \begin{tabular}{cc}
+	\toprule[1.5pt]
+	名称 & 参数  \\ 
+	\midrule[0.75]
+	状态 & \makecell{鸟瞰图 \\ 显示航向角和速度的图像快照 \\ 车辆特征向量和信号特定信息} \\
+	动作 &  \makecell{加速度 \\ 等待、慢慢前进、走 \\ 向上、向下、向左和向右移动} \\
+	奖励 & \makecell{成功到达奖励和碰撞惩罚 \\ 速度、跟车间距和预计到达交叉路口时间的函数} \\
+	\bottomrule[1.5pt]
+  \end{tabular}
+\end{table}
