@@ -2,16 +2,23 @@
 %!TEX program = xelatex
 
 \documentclass[doctor]{hnuthesis}
-\usepackage{subfigure}
+\usepackage[small,bf,sf,SF,BF]{subfigure}
 \usepackage{amsmath, unicode-math}
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}%
-
+%\setlength\cftbeforechapskip{0.5em}  
 %\newCJKfontfamily{\simsun}[AutoFakeBold = {3.17}]{SimSun} %%中文加粗
-
+\setlength{\algoheightrule}{1.5pt} % thickness of the rules above and below
+\setlength{\algotitleheightrule}{0.75pt} % thicknes of the rule below the title
 \usepackage{algpseudocode}
+ 
+ 
 \usepackage{float}
 \usepackage{makecell}
+
+
+
+
 
 \usepackage{tikz}
 \usepackage{etoolbox}
@@ -61,8 +68,8 @@
 \supervisor{***\ 教授}
 \ensupervisor{Professor XXX}
 % 论文提交、答辩日期
-\submitdate{二〇二x年x月xx日}
-\defensedate{二〇二X年x月xx日}
+\submitdate{202x年x月xx日}
+\defensedate{202X年x月xx日}
 \endate{June, 2022}
 % 答辩委员会主席
 \chair{待定}
@@ -77,8 +84,17 @@
 % 目录
 \tableofcontents
 % 插图附表索引
-\listoffigures
-\listoftables
+\begingroup
+	\renewcommand*{\addvspace}[1]{}
+	\newcommand{\loflabel}{图} 
+	\renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}	
+	\listoffigures
+	
+	\newcommand{\lotlabel}{表}
+	\renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
+	\listoftables
+\endgroup
+
 
 % 正文章节
 \mainmatter

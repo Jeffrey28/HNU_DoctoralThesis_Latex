@@ -36,8 +36,8 @@
 %\setsansfont{Arial}
 \setsansfont{Times New Roman}
 \setmonofont{Courier New}
-\setCJKmainfont{SimSun}[AutoFakeBold]
-\setCJKsansfont{SimHei}
+\setCJKmainfont{SimSun.ttf}[AutoFakeBold]
+\setCJKsansfont{SimHei.ttf}
 \RequirePackage{hyperref}
 \hypersetup{
     bookmarksopen=true,
@@ -77,6 +77,7 @@
 \hnu@define@term{hnucode}
 \hnu@define@term{hnuname}
 \hnu@define@term{title}
+\hnu@define@term{yttitle}
 \hnu@define@term{clc}
 \hnu@define@term{secrettext}
 \hnu@define@term{author}
@@ -158,7 +159,7 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \fancypagestyle{hnu@headings}{%
   \fancyhf{}%
-  \fancyhead[CE]{\setfontsize{9pt}\hnu@title}%
+  \fancyhead[CE]{\setfontsize{9pt}\hnu@yttitle}%
   \fancyhead[CO]{\setfontsize{9pt}\hnu@thesisname}
   \fancyfoot[C]{\setfontsize{9pt}\thepage}
   \fancyheadoffset[LO,LE]{3mm}
@@ -194,7 +195,7 @@
 % 章节、段落、页眉、页脚
 \renewcommand\chapter{%
   \if@openright\cleardoublepage\else\clearpage\fi
-  \setlength{\baselineskip}{22pt}  % 行间距
+  \setlength{\baselineskip}{20.8pt}  % 行间距
   \renewcommand{\CJKglue}{\hskip 0.5pt plus \baselineskip}
   \global\@topnum\z@
   \@afterindenttrue
@@ -254,6 +255,14 @@
         afterskip  = 6pt,
         % indent    = 3\ccwd,
     },
+%    subsubsection = {
+%        format    = \bf\sffamily\setfontsize{12.5pt},
+%%        number    = (\arabic{subsubsection}),
+%        aftername = \hspace{\ccwd},
+%        beforeskip = 6pt,
+%        afterskip  = 6pt,
+%        % indent    = 3\ccwd,
+%    },
     paragraph = {
         format    = \sffamily\setfontsize{12.5pt},
         number    = (\arabic{paragraph}),
@@ -412,20 +421,20 @@
 \newcommand\make@entitle{%
     \begin{titlepage}%
         \vpostext{3.9cm}{\setfontsize{15pt}\textbf{\hnu@entitle}}%
-        \vpostext{6.5cm}{\setfontsize{12.5pt}\textbf{by}}%
+        \vpostext{6.5cm}{\setfontsize{12.5pt}\textbf{By}}%
         \vpostext{7.5cm}{\setfontsize{12.5pt}\textbf{\hnu@enauthor}}%
         \vpostext{8.5cm}{\setfontsize{12.5pt}\textbf{\hnu@enbachelor}}%
         \vpostext{9.5cm}{\setfontsize{12.5pt}\textbf{\hnu@enmaster}}%
 
-        \vpostext{10.5cm}{\setfontsize{12.5pt}\textbf{A thesis submitted in partial satisfaction of the}}%
-        \vpostext{11.5cm}{\setfontsize{12.5pt}\textbf{requirements for the degree of}}%
-        \vpostext{12.5cm}{\setfontsize{12.5pt}\textbf{\hnu@endoctor}}%
-        \vpostext{13.5cm}{\setfontsize{12.5pt}\textbf{in}}%
-        \vpostext{14.5cm}{\setfontsize{12.5pt}\textbf{\hnu@enmajor}}%
-        \vpostext{15.5cm}{\setfontsize{12.5pt}\textbf{in the}}%
-        \vpostext{16.5cm}{\setfontsize{12.5pt}\textbf{Graduate School}}%
-        \vpostext{17.5cm}{\setfontsize{12.5pt}\textbf{of}}%
-        \vpostext{18.5cm}{\setfontsize{12.5pt}\textbf{\hnu@enhnuname}}%
+        \vpostext{10cm}{\setfontsize{12.5pt}\textbf{A thesis submitted in partial satisfaction of the}}%
+        \vpostext{11cm}{\setfontsize{12.5pt}\textbf{requirements for the degree of}}%
+        \vpostext{12cm}{\setfontsize{12.5pt}\textbf{\hnu@endoctor}}%
+        \vpostext{13cm}{\setfontsize{12.5pt}\textbf{in}}%
+        \vpostext{14cm}{\setfontsize{12.5pt}\textbf{\hnu@enmajor}}%
+        \vpostext{15cm}{\setfontsize{12.5pt}\textbf{in the}}%
+        \vpostext{16cm}{\setfontsize{12.5pt}\textbf{Graduate School}}%
+        \vpostext{17cm}{\setfontsize{12.5pt}\textbf{of}}%
+        \vpostext{18 cm}{\setfontsize{12.5pt}\textbf{\hnu@enhnuname}}%
         \vpostext{21cm}{\setfontsize{12.5pt}\textbf{Supervisor}}%
         \vpostext{22cm}{\setfontsize{12.5pt}\textbf{\hnu@ensupervisor}}%
         \vpostext{23cm}{\setfontsize{12.5pt}\textbf{\hnu@endate}}%
@@ -527,7 +536,7 @@
   \titlecontents{chapter}[0bp]
     {\addvspace{6bp}\bf\sffamily\setfontsize{12.5pt}[15pt]}
     {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\hnu@leaders\setfontsize{12.5pt}[12.5pt]\contentspage}
+    {}{\normalfont\hnu@leaders\setfontsize{12.5pt}[12.5pt]\contentspage}
   \titlecontents{section}
       [2\ccwd]
       {\setfontsize{12.5pt}[20pt]}
@@ -627,7 +636,7 @@
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{\ccwd}}
 \captionsetup{
     format = hang,
-    font = {small},  % font = {small, bf}产生加黑
+    font = {small, sf, bf},  % font = {small, bf}产生加粗 图例
     labelsep = zhspace,
 }
 \captionsetup[figure]{
@@ -723,7 +732,7 @@
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi%
         \kern\p@\else#1\fi\endgroup}
-\renewcommand\bibfont{\setfontsize{10.5bp}[20bp]}
+\renewcommand\bibfont{\setfontsize{12bp}[20bp]}
 \setlength{\bibsep}{0bp}
 \setlength{\bibhang}{2\ccwd}
 \renewcommand\@biblabel[1]{[#1]\hfill}
