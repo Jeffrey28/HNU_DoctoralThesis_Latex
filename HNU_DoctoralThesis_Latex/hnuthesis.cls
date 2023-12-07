@@ -62,6 +62,7 @@
     }
 }
 
+\RequirePackage{utfsym}
 \RequirePackage{xparse}
 \NewDocumentCommand\setfontsize{mo}{\IfValueTF{#2}{\fontsize{#1}{#2}}{\fontsize{#1}{2\dimexpr#1}}\linespread{1}\selectfont\relax}
 \newcommand\zhspace[1][1]{\hspace{#1\ccwd}}
@@ -162,7 +163,7 @@
   \fancyhead[CE]{\setfontsize{9pt}\hnu@yttitle}%
   \fancyhead[CO]{\setfontsize{9pt}\hnu@thesisname}
   \fancyfoot[C]{\setfontsize{9pt}\thepage}
-  \fancyheadoffset[LO,LE]{3mm}
+  \fancyheadoffset[LO,LE]{5mm} %页眉偏移调整
   \fancyheadoffset[RO,RE]{-3mm}
   \makeatletter
   \def\headrule{
@@ -455,7 +456,7 @@
 
     \qquad\qquad\qquad\quad 2、不保密 $\square$。
 
-    \qquad\qquad\qquad\quad（请在以上相应方框内打“\checkmark ”）
+    \qquad\qquad\qquad\quad（请在以上相应方框内打“\usym{1F5F8} ”）
 }
 
 \newcommand\make@statement{
@@ -536,7 +537,7 @@
   \titlecontents{chapter}[0bp]
     {\addvspace{6bp}\bf\sffamily\setfontsize{12.5pt}[15pt]}
     {\contentspush{\thecontentslabel\unskip\hskip\ccwd\relax}}
-    {}{\normalfont\hnu@leaders\setfontsize{12.5pt}[12.5pt]\contentspage}
+    {}{\normalfont\hnu@leaders\setfontsize{12.5pt}[12.5pt]\contentspage} %添加normalfont目录页码加黑问题
   \titlecontents{section}
       [2\ccwd]
       {\setfontsize{12.5pt}[20pt]}
