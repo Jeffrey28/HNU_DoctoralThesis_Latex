@@ -1,6 +1,9 @@
-\chapter{论文模板简单使用说明}
+\chapter{论文模板使用说明}
 \section{Latex使用}
 该模板已经在mac的texifier，overleaf，vscode上验证使用，请用XeLaTex进行编译。
+
+%\section{数学公式、图表、参考文献等功能}
+
 
 \section{参考文献}
 
@@ -18,34 +21,113 @@
 
 \section{图表}
 插入图的常用命令有：
+
+插入单个图时，可使用以下命令，主要调整的是图片大小。
 \begin{lstlisting}
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=.7\textwidth, page=1]{figures/dc.pdf}
-  \caption{决策控制框架}
-  \label{fig:dc-1}
+  \includegraphics[width=.7\textwidth]{figures/hnu-logo.png}
+  \caption{湖南大学校徽}
+  \label{fig:ch2-1}
 \end{figure}
 \end{lstlisting}
 
-引用的使用可以直接使用\lstinline!\figref{fig:dc-1}!
+引用时可以直接使用\lstinline!\figref{fig:ch2-1}!，文本中显示为“\figref{fig:ch2-1}”。值得一提的是，如果插入的为pdf文件，其中每页pdf对应着一张图片，那么，\lstinline!\includegraphics[]!中可添加\lstinline!page=num!（num为对应的页码）。此外需要提醒的是虽然\lstinline!width=!可以调整图片的大小，即可手动放大缩小来适应排版，但是\textcolor{red}{如果图中有文字的不太建议这样调整，最好是提前测试图片中的文字大小，不可小于8号字体，最大也不要超过10号字体，然后插入的时候尽量不使用\lstinline!width=!来调整，以保持原图的大小。}
+\begin{figure}
+    \centering
+    \includegraphics[]{figures/hnu-logo.png}
+    \caption{湖南大学校徽}
+    \label{fig:ch2-1}
+\end{figure}
+
+多图排列，可使用以下代码：
+\begin{lstlisting}
+\begin{figure}[htbp]
+  \centering
+  \subfigure[分流]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2a}
+  }
+  \quad
+  \subfigure[交叉]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2b}
+  }
+  \quad
+  \subfigure[合流]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2c}
+  }
+  \quad
+  \subfigure[无冲突]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2d}
+  }
+  \caption{冲突模式}
+  \label{fig:ch2-2}
+\end{figure}
+\end{lstlisting}
+\begin{figure}[htbp]
+  \centering
+  \subfigure[分流]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2a}
+  }
+  \quad
+  \subfigure[交叉]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2b}
+  }
+  \quad
+  \subfigure[合流]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2c}
+  }
+  \quad
+  \subfigure[无冲突]{
+  \includegraphics[width=0.3\linewidth]{figures/hnu-logo.png}
+  \label{fig:ch2-2d}
+  }
+  \caption{冲突模式}
+  \label{fig:ch2-2}
+\end{figure}
+
+
+~\\
+~\\
 
 三线表的命令：
 \begin{lstlisting}
 \begin{table}[htb]
   \centering
   \caption{训练超参数}
-  \label{tab:sarl-4}
-  \begin{tabular}{ccc}
-	\toprule
-	物理意义 & 英文/符号 & 数值 \\ 
-	\midrule
+  \label{tab:ch2-1}
+  \begin{tabular}{ccc} %ccc表示列数与对齐方式
+	\toprule[1.5pt] % 标准尺寸不要修改
+	物理意义 & 英文/符号 & 数值 \\ % 每一列的元素用&隔开
+	\midrule[0.75pt]
 	 隐含层数 & Hidden layer number & $\rm 2$ \\
-	\bottomrule
+	\bottomrule[1.5pt]
   \end{tabular}
 \end{table}
 \end{lstlisting}
 
-引用格式为\lstinline!\tabref{tab:sarl-4}!
+引用格式为\lstinline!\tabref{tab:ch2-1}!，在文本中为“\tabref{tab:ch2-1}”。
+\begin{table}[htb]
+%  \small
+  \centering
+  \caption{单车强化学习MDP设置}
+  \label{tab:ch2-1}
+  \begin{tabular}{cc}
+	\toprule[1.5pt]
+	名称 & 参数  \\ 
+	\midrule[0.75pt]
+	状态 & \makecell{鸟瞰图 \\ 显示航向角和速度的图像快照 \\ 车辆特征向量和信号特定信息} \\
+	动作 &  \makecell{加速度 \\ 等待、慢慢前进、走 \\ 向上、向下、向左和向右移动} \\
+	奖励 & \makecell{成功到达奖励和碰撞惩罚 \\ 速度、跟车间距和预计到达交叉路口时间的函数} \\
+	\bottomrule[1.5pt]
+  \end{tabular}
+\end{table}
 
 \section{定理类环境}
 该模板定义了定理，引理，评注等，具体有：
@@ -64,17 +146,30 @@
 \newcommand\hnu@assumptionname{假设}
 \end{lstlisting}
 
+\begin{lstlisting}
+\begin{proof}
+	这是一个证明。
+\end{proof}
+
+\begin{theorem}\label{the:ch2-1}
+	这是一个定理。
+\end{theorem}
+\end{lstlisting}
+
+\begin{proof}
+	这是一个证明。
+\end{proof}
+
+\begin{theorem}\label{the:ch2-1}
+	这是一个定理。
+\end{theorem}
+
 \section{公式书写与引用}
 公式书写的开始形式如下
 引用格式为\lstinline!\eqref{}!
 
-\begin{figure}
-    \centering
-    \includegraphics{figures/hnu-logo.png}
-    \caption{Caption}
-    \label{fig:1}
-\end{figure}
 
+\section{伪代码书写}
 \begin{algorithm} [htb]                                            
 	\caption{FCFS算法}
   	\label{algo:revi-1}  
@@ -92,26 +187,3 @@
 		随后更新并存储$t_j^{\mathrm{in}}, t_j^1, t_j^2, \ldots t_j^{Q_j}, t_j^{\text {out }}$。
 		}
 \end{algorithm}
-
-\begin{figure}
-    \centering
-    \includegraphics{figures/hnu-logo.png}
-    \caption{Caption}
-    \label{fig:1}
-\end{figure}
-
-\begin{table}[htb]
-  \small
-  \centering
-  \caption{单车强化学习MDP设置}
-  \label{tab:revi-1}
-  \begin{tabular}{cc}
-	\toprule[1.5pt]
-	名称 & 参数  \\ 
-	\midrule[0.75pt]
-	状态 & \makecell{鸟瞰图 \\ 显示航向角和速度的图像快照 \\ 车辆特征向量和信号特定信息} \\
-	动作 &  \makecell{加速度 \\ 等待、慢慢前进、走 \\ 向上、向下、向左和向右移动} \\
-	奖励 & \makecell{成功到达奖励和碰撞惩罚 \\ 速度、跟车间距和预计到达交叉路口时间的函数} \\
-	\bottomrule[1.5pt]
-  \end{tabular}
-\end{table}
