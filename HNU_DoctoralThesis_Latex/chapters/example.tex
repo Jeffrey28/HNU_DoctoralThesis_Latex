@@ -9,15 +9,19 @@
 
 在Doctoral-thesis.tex修改参考文献链接：\lstinline!\bibliography{MyLibrary.bib}!。
 
-目前可以使用的引用命令有\lstinline!\cite{}!、\lstinline!\citep{}!、\lstinline!\citet{}!和\lstinline!\citen{}!
+目前可以使用的引用命令有\lstinline!\cite{}!、\lstinline!\citep{}!、\lstinline!\citet{}!和\lstinline!\citen{}!。
 
 效果如下：
+\begin{enumerate}
+	\item 引用参考文献时，数字显示在右上角：引用 ResNet~\cite{2020_aradi_Survey}提出了ResNet网络结构\citep{2020_aradi_Survey}（\lstinline!\cite{}!、\lstinline!\citep{}!）；
+	\item 引用参考文献时，以人名为主语：\citet{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}针对队列稳定性提出了观测性方法。或者\citet{2021_chen_Graph}对与图做了个总结（\lstinline!\citet{}!）；
+	\item 引用参考文献时，引用数字显示在正文中：\citen{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}这样（\lstinline!\citen{}!）。
+\end{enumerate}
+%引用 ResNet~\cite{2020_aradi_Survey}提出了ResNet网络结构\citep{2020_aradi_Survey}（上述第一个效果和第二个效果相同）。
 
-引用 ResNet~\cite{2020_aradi_Survey}提出了ResNet网络结构\citep{2020_aradi_Survey}（上述第一个效果和第二个效果相同）。
+%以人名为主语：\citet{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}针对队列稳定性提出了观测性方法。或者\citet{2021_chen_Graph}对与图做了个总结。
 
-以人名为主语：\citet{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}针对队列稳定性提出了观测性方法。或者\citet{2021_chen_Graph}对与图做了个总结。
-
-参考文献的引用图标不上标：\citen{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}这样。
+%参考文献的引用图标不上标：\citen{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}这样。
 
 \section{图表}
 插入图的常用命令有：
@@ -95,7 +99,6 @@
 
 ~\\
 ~\\
-
 三线表的命令：
 \begin{lstlisting}
 \begin{table}[htb]
