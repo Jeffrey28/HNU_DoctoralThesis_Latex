@@ -17,6 +17,8 @@
 	\item 引用参考文献时，以人名为主语：\citet{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}针对队列稳定性提出了观测性方法。或者\citet{2021_chen_Graph}对与图做了个总结（\lstinline!\citet{}!）；
 	\item 引用参考文献时，引用数字显示在正文中：\citen{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}这样（\lstinline!\citen{}!）。
 \end{enumerate}
+
+\textcolor{red}{如果参考文献不需要doi信息，那么可以在\lstinline!newnumerical.bst!中搜索\lstinline!#1 'show.doi :=!，或者定位到第88行位置，并将1改为0。}
 %引用 ResNet~\cite{2020_aradi_Survey}提出了ResNet网络结构\citep{2020_aradi_Survey}（上述第一个效果和第二个效果相同）。
 
 %以人名为主语：\citet{2017_qinxiaohui_FeiYunZhiCheLiangDuiLieDeFenBuShiKongZhi}针对队列稳定性提出了观测性方法。或者\citet{2021_chen_Graph}对与图做了个总结。
@@ -40,9 +42,11 @@
 \begin{figure}
     \centering
     \includegraphics[]{figures/hnu-logo.png}
-    \caption{湖南大学校徽}
+    \caption[湖南大学校徽]{湖南大学校徽~\cite{2021_chen_Graph}}
     \label{fig:ch2-1}
 \end{figure}
+
+如果插入图片的图注需要添加参考文献，如\figref{fig:ch2-1}的图注所示，为了防止前面的插图索引列表生成引用符号，同时防止参考文献顺序发生改变，只需在\lstinline!\caption!后面添加\lstinline![]!并在其中补充相应的题注信息，如\lstinline!\caption[湖南大学校徽]{湖南大学校徽~\cite{2021_chen_Graph}}!所示。
 
 多图排列，可使用以下代码：
 \begin{lstlisting}

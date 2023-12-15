@@ -456,7 +456,7 @@
 
     \qquad\qquad\qquad\quad 2、不保密 $\square$。
 
-    \qquad\qquad\qquad\quad（请在以上相应方框内打“\usym{1F5F8} ”）
+    \qquad\qquad\qquad\quad（请在以上相应方框内打“\usym{1F5F8}”）
 }
 
 \newcommand\make@statement{
