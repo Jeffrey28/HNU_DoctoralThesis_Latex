@@ -111,6 +111,8 @@
 \RequirePackage{multirow}
 % 跨页表格
 % \RequirePackage{longtable}
+% 设置表格字体大小
+\AtBeginEnvironment{tabular}{\small} % 调整为所需的字体大小
 
 
  % 新定义命令

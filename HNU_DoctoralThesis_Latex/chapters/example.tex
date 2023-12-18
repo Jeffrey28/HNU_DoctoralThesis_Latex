@@ -177,13 +177,14 @@
 
 
 \section{伪代码书写}
-\begin{algorithm} [htb]                                            
+\begin{algorithm} [htb]                                           
 	\caption{FCFS算法}
   	\label{algo:revi-1}  
   	\SetKwInOut{KwIn}{初始化}
-    \SetKwInOut{KwOut}{输出}
+    \SetKwInOut{KwOut}{输\quad 出}
 	\KwIn{交叉路口信息，即网格占用点}
-	得到交叉路口车辆进入序列 \\
+	\KwOut{$t_j^{\mathrm{in}}=\max \left\{t_{j, 1}^{\mathrm{in}}, t_{j, 2}^{\mathrm{in}}, \ldots, t_{j, k}^{\mathrm{in}}\right\}$ \quad $\rhd$}
+	得到交叉路口车辆进入序列；得到交叉路口车辆进入序列得到交叉路口车辆进入序列得到交叉路口车辆进入序列 \\
 	\For{\rm $1 < j < N$}{
 		\For{\rm $k<j$}{
 			识别车辆$j$与$k$之间的公共占用点$c_{j,k}\in \{1,2,\dots,Q_j\}$ \\
